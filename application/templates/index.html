@@ -3,15 +3,39 @@
 {% block content %}
       <!-- <h1>Dog Finder</h1> -->
       <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="http://www.geekologie.com/2009/04/20/link%20dog%201.jpg" alt="Card image cap">
+        <img class="card-img-top" src="https://www.thesprucepets.com/thmb/kV_cfc9P4QWe-klxZ8y--awxvY4=/960x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/adorable-white-pomeranian-puppy-spitz-921029690-5c8be25d46e0fb000172effe.jpg" alt="Card image cap">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="" class="btn btn-primary">Go somewhere</a>
+          <!-- <h5 class="card-title">Lost</h5> -->
+          <h4><span class="badge badge-warning">Lost</span></h4>
+
+          <span class="badge badge-pill badge-secondary">tag1</span>
+          <span class="badge badge-pill badge-secondary">tag2</span>
+          <span class="badge badge-pill badge-secondary">tag3</span>
+
+            <div class="row">
+              <div class="col-1">
+                <p class="card-text"><i class='fas fa-envelope'></i></p>
+              </div>
+              <div class="col-10">
+                <p class="card-text">name@gmail.com</p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-1">
+                <p class="card-text"><i class='fas fa-map-marker-alt'></i></p>
+              </div>
+              <div class="col-10">
+                <p class="card-text">1600 Holloway Ave, San Francisco, CA 94132</p>
+              </div>
+            </div>
+
+          <!-- <p class="card-text"><i class='fas fa-envelope'></i></p>
+          <p class="card-text"><i class='fas fa-map-marker-alt'></i> 1600 Holloway Ave, San Francisco, CA 94132</p> -->
+          <!-- <a href="" class="btn btn-primary">Go somewhere</a> -->
         </div>
       </div>   
 
-    
     {{ response }}
 
 {% endblock %} 

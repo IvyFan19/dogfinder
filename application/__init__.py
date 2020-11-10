@@ -39,8 +39,8 @@ def upload():
         data1 = response1.json()
         status1 = data1['status']
         post_id = data1['post_id']
-        print(' * test 1 : {}'.format(status1))
-        print(' * post_id : {}'.format(post_id))
+        print(' * test 1 - upload dog info: {}'.format(status1))
+        print(' * * post_id : {}'.format(post_id))
 
         # upload dog image to database
         file = {'file': img_name}
@@ -50,7 +50,18 @@ def upload():
         data2 = response2.json()
         status2 = data2['status']
         image_id = data2['image_id']
-        print(' * test image upload : {}'.format(status2))
-        print(' * image_id : {}'.format(image_id))
+        print(' * test 2 - image upload: {}'.format(status2))
+        print(' * * image_id : {}'.format(image_id))
         return render_template('index.html')   
+
+
+# get a dog entity by id
+@app.route('/dog/<post_id>', methods=['GET'])
+def item(post_id):
+    reponse3 = requests.get(url=base_url+'/api/posts/get/'+post_id)
+    # get by ID test results
+    data3 = reponse3.json()
+    status3 = data3['status']
+    print(' * test 3 - get dog entity: {}'.format(status3))
+    print(' * * dog entity : {}'.format(data3))
        
