@@ -3,20 +3,20 @@
 {% block content %}
 
     <form method="POST" action="/upload" id="postForm" enctype=multipart/form-data>
-        <div class="form-group d">
-
+      
+      <div class="form-group">
+        <label>Post Type</label>
+        <input type="text" class="form-control" name="posttype" placeholder="Lost / Found">
+      </div>
+      
+      <div class="form-group ">
         <label>Location</label>
-        <input type="text" class="form-control" name="location" placeholder="">
+        <input type="text" class="form-control" name="location" placeholder=" Ave, San Francisco, CA 94132">
       </div>
       
       <div class="form-group">
-        <label>Contact Email</label>
-        <input type="email" class="form-control" name="email" placeholder="">
-      </div>
-
-      <div class="form-group">
-        <label>Post Type</label>
-        <input type="text" class="form-control" name="posttype" placeholder="">
+        <label>Contact Phone Number</label>
+        <input type="text" class="form-control" name="email" placeholder="XXX-XXX-XXXX">
       </div>
 
       <div class="form-group">

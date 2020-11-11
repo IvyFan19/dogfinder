@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, request
+from flask import Flask, render_template, redirect, request, jsonify
 import requests, json, os
 
 app = Flask(__name__)
@@ -10,14 +10,19 @@ def index():
         term = request.form.get('search_content')
         reponse4 = requests.get(url=base_url+'/api/posts/search/'+term)
 
-        # test search function
+        # test search
         data4 = reponse4.json()
         status4 = data4['status']
         results4 = data4['result']
         print(' * * status 4 - search: {}'.format(status4))
         print(' * results 4 : {}'.format(results4))
-        return render_template('index.html', entities=data4)
 
+        return render_template('index.html', entities=results4)
+
+    if request.method == 'GET':
+        test = 'get page'
+        return render_template('index.html', response=test)
+    
 # Page: post a dog
 @app.route('/post', methods=['GET'])
 def post():    
