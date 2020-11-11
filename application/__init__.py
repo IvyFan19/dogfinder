@@ -28,7 +28,7 @@ def index():
 def post():    
     return render_template('form.html')   
 
-# upload dog info and image
+# Upload dog info and image
 @app.route('/upload', methods =['GET','POST']) 
 def upload(): 
     if request.method == 'POST':

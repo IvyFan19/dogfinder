@@ -2,6 +2,13 @@
 
 {% block content %}
 
+<style>
+  .mybutton{
+    padding: 2px;
+    width : 100%;
+ }
+
+</style>
 <!-- search bar -->
     <form action="/", method="POST">
       <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
@@ -21,12 +28,22 @@
       <div class="card mx-auto">
         <img class="card-img-top" src="{{entity['image_url']}}" alt="Card image cap">
         <div class="card-body">
-          <h4><span class="badge badge-warning">{{entity['post_type']}}</span></h4>
+          {%if (entity['post_type']=='lost' or entity['post_type']=='Lost')%}
+          <!-- <div class="text-right"> -->
+            <h4><span class="badge badge-warning">{{entity['post_type']}}</span></h4>
+       
+          {% else %}
+            <h4><span class="badge badge-info">{{entity['post_type']}}</span></h4>
+          {% endif %}
+          <div class="p-1">
+            <span class="badge badge-pill badge-secondary">tag1</span>
+            <span class="badge badge-pill badge-secondary">tag2</span>
+            <span class="badge badge-pill badge-secondary">tag3</span>
 
-          <span class="badge badge-pill badge-secondary">tag1</span>
-          <span class="badge badge-pill badge-secondary">tag2</span>
-          <span class="badge badge-pill badge-secondary">tag3</span>
+          </div>
 
+
+          <div class="p-1">
             <div class="row">
               <div class="col-1">
                 <p class="card-text"><i class="fas fa-phone-alt"></i></p>
@@ -35,7 +52,9 @@
                 <p class="card-text">{{entity['contact']}}</p>
               </div>
             </div>
+          </div>
 
+          <div class="p-1">
             <div class="row">
               <div class="col-1">
                 <p class="card-text"><i class='fas fa-map-marker-alt'></i></p>
@@ -44,17 +63,15 @@
                 <p class="card-text">{{entity['location']}}</p>
               </div>
             </div>
-
-    
-            <button type="button" class="btn btn-outline-secondary btn-block ">Edit</button>
-  
-
-            <!-- </div>  <button type="button" class="btn btn-outline-info">Info</button> -->
+          </div>
+          
+          <div class="text-center p-1">
+            <a class="btn btn-primary mybutton text-center" href="/post" role="button">Edit</a>
+          </div>
+          
             
-
-          <!-- <p class="card-text"><i class='fas fa-envelope'></i></p>
-          <p class="card-text"><i class='fas fa-map-marker-alt'></i> 1600 Holloway Ave, San Francisco, CA 94132</p> -->
-          <!-- <a href="" class="btn btn-primary">Go somewhere</a> -->
+           
+  
         </div>
       </div>  
     </div>
