@@ -4,10 +4,19 @@ import requests, json, os
 app = Flask(__name__)
 base_url = 'https://project3-294022.wl.r.appspot.com'
 
-@app.route('/', methods=['GET'])
-def index():    
-    test = "result"
-    return render_template('index.html', response=test)
+@app.route('/', methods=['GET', 'POST'])
+def index():  
+    if request.method == 'POST':
+        term = request.form.get('search_content')
+        reponse4 = requests.get(url=base_url+'/api/posts/search/'+term)
+
+        # test search function
+        data4 = reponse4.json()
+        status4 = data4['status']
+        results4 = data4['result']
+        print(' * * status 4 - search: {}'.format(status4))
+        print(' * results 4 : {}'.format(results4))
+        return render_template('index.html', entities=data4)
 
 # Page: post a dog
 @app.route('/post', methods=['GET'])
@@ -43,7 +52,8 @@ def upload():
         print(' * * post_id : {}'.format(post_id))
 
         # upload dog image to database
-        file = {'file': img_name}
+        content_type = 'image/jpeg'
+        file = {'file': (img_name, img_file, content_type)}
         response2 = requests.post(url=base_url+'/api/images/upload/'+post_id, files=file)
         
         # test dog image uploaded
@@ -54,7 +64,6 @@ def upload():
         print(' * * image_id : {}'.format(image_id))
         return render_template('index.html')   
 
-
 # get a dog entity by id
 @app.route('/dog/<post_id>', methods=['GET'])
 def item(post_id):
@@ -64,4 +73,6 @@ def item(post_id):
     status3 = data3['status']
     print(' * test 3 - get dog entity: {}'.format(status3))
     print(' * * dog entity : {}'.format(data3))
+
+
        

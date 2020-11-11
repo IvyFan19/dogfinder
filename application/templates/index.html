@@ -1,7 +1,19 @@
 {% extends 'base.html' %}
 
 {% block content %}
-      <!-- <h1>Dog Finder</h1> -->
+
+<!-- search bar -->
+    <form action="/", method="POST">
+      <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4">
+        <div class="input-group">
+          <input id="search_content" name="search_content" type="search" placeholder="Search your dog" aria-describedby="button-addon1" class="form-control border-0 bg-light">
+          <div class="input-group-append">
+            <button type="submit" class="btn btn-link text-primary"><i class="fa fa-search"></i></button>
+          </div>
+        </div>
+      </div>
+
+<!-- list dog card -->
       <div class="card" style="width: 18rem;">
         <img class="card-img-top" src="https://www.thesprucepets.com/thmb/kV_cfc9P4QWe-klxZ8y--awxvY4=/960x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/adorable-white-pomeranian-puppy-spitz-921029690-5c8be25d46e0fb000172effe.jpg" alt="Card image cap">
         <div class="card-body">
