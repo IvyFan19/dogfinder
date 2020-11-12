@@ -1,8 +1,19 @@
 from flask import Flask, render_template, redirect, request, jsonify
 import requests, json, os
+# from flask_googlemaps import GoogleMaps
 
 app = Flask(__name__)
 base_url = 'https://project3-294022.wl.r.appspot.com'
+
+# # google api
+# app.config['GOOGLEMAPS_KEY'] = "AIzaSyBEEjl88zaaLGz2Q2PWPRm_OxoWG2APJ0k"
+# # Initialize the extension
+# GoogleMaps(app)
+
+@app.route('/map/<location_str>', methods=['GET', 'POST'])
+def map(location_str):
+    print(location_str)
+    return render_template('map.html', location=location_str)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():  
