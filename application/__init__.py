@@ -103,7 +103,7 @@ def edit():
         print('@@@@@@@@@@@@@@@')
         print("image_id: ", image_id, "post_id: ", post_id, location, contact, posttype)
         
-        # keep original image 
+        # edit image 
         if img_file: 
             print("update new image")
             img_name = img_file.filename
@@ -114,7 +114,8 @@ def edit():
             data = reponse_search.json()
             results = data['result']
             return render_template('index.html', entities=results) 
-
+            
+        # keep original image
         else:
             reponse7 = requests.post(url=base_url+'/api/posts/update', json={
             'post_id': post_id, 'image_id': image_id, 'location': location, 
